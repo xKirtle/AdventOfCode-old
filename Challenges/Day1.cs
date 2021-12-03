@@ -7,11 +7,11 @@ namespace AdventOfCode.Challenges
     {
         public static void Day1()
         {
-            Part1();
-            Part2();
+            D1P1();
+            D1P2();
         }
         
-        private static void Part1()
+        private static void D1P1()
         {
             string[] strInput = Program.handleInput(1);
             //Could throw an exception on int.Parse
@@ -30,7 +30,7 @@ namespace AdventOfCode.Challenges
             Console.WriteLine("D1P1: " + increaseCounter);
         }
 
-        private static void Part2()
+        private static void D1P2()
         {
             string[] strInput = Program.handleInput(1);
             //Could throw an exception on int.Parse
