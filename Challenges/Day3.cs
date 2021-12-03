@@ -35,51 +35,35 @@ namespace AdventOfCode.Challenges
 
         private static void D3P2()
         {
-            //life support rating = oxygen rating * CO2 rating
-            
             string[] strInput = Program.handleInput(3);
-            //Most commong, 1>0
-            List<string> o = strInput.ToList();
-            //Least common, 0>1
-            List<string> c = strInput.ToList();
 
-            for (int i = 0; i < strInput[0].Length; i++)
+            List<string> oxygen = someFunction(strInput.ToList(), (c1, c2) => (c1 == c2 || c2 > c1) ? '1' : '0');
+            List<string> co2 = someFunction(strInput.ToList(), (c1, c2) => (c1 == c2 || c2 > c1) ? '0' : '1');
+            
+            List<string> someFunction(List<string> list, Func<int, int, char> func)
             {
-                if (o.Count != 1)
+                for (int i = 0; i < list[0].Length; i++)
                 {
-                    int zeroCounter = 0;
-                    int oneCounter = 0;
-                    foreach (string str in o)
-                        _ = str[i] == '0' ? zeroCounter++ : oneCounter++;
-
-                    char oType = (zeroCounter == oneCounter || oneCounter > zeroCounter) ? '1' : '0';
-                    foreach (string str in o.ToList())
+                    if (list.Count != 1)
                     {
-                        if (str[i] != oType)
-                            o.Remove(str);
+                        int zeroCounter = 0;
+                        int oneCounter = 0;
+                        foreach (string str in list)
+                            _ = str[i] == '0' ? zeroCounter++ : oneCounter++;
+
+                        char type = func(zeroCounter, oneCounter);
+                        foreach (string str in list.ToList())
+                        {
+                            if (str[i] != type)
+                                list.Remove(str);
+                        }
                     }
                 }
 
-                if (c.Count != 1)
-                {
-                    int zeroCounter = 0;
-                    int oneCounter = 0;
-                    foreach (string str in c)
-                        _ = str[i] == '0' ? zeroCounter++ : oneCounter++;
-
-                    char cType = (zeroCounter == oneCounter || oneCounter > zeroCounter) ? '0' : '1';
-                    foreach (string str in c.ToList())
-                    {
-                        if (str[i] != cType)
-                            c.Remove(str);
-                    }
-                }
-
-                if (o.Count == 1 && c.Count == 1)
-                    break;
+                return list;
             }
 
-            Console.WriteLine("D3P2: " + Convert.ToInt32(o[0], 2) * Convert.ToInt32(c[0], 2));
+            Console.WriteLine("D3P2: " + Convert.ToInt32(oxygen[0], 2) * Convert.ToInt32(co2[0], 2));
         }
     }
 }
