@@ -9,14 +9,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="Challenges" />
         
         <Content Include="Input\**">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
         </Content>
-        
-        <Folder Include="Input" />
     </ItemGroup>
 
 </Project>
