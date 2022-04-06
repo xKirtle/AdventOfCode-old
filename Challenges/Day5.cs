@@ -42,7 +42,7 @@ public partial class Challenges
         for (int k = 0; k < maxSize * maxSize; k++)
             if (coverCount[k] >= 2) result++;
 
-        Console.WriteLine(result);
+        Console.WriteLine("D5P1: " + result);
     }
 
     private static void D5P2()
@@ -88,6 +88,6 @@ public partial class Challenges
         for (int k = 0; k < maxSize * maxSize; k++)
             if (coverCount[k] >= 2) result++;
 
-        Console.WriteLine(result);
+        Console.WriteLine("D5P2: " + result);
     }
 }
