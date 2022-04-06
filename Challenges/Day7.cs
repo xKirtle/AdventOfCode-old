@@ -4,7 +4,7 @@ public partial class Challenges
 {
     public static void Day7()
     {
-        // D7P1();
+        D7P1();
         D7P2();
     }
 
