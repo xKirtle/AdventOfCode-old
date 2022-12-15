@@ -9,8 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        
-        <Content Include="Input\**">
+
+        <Content Include="Input\**\*">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
         </Content>

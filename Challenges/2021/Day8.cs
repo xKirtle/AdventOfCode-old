@@ -1,34 +1,25 @@
-using System.Text;
-
 namespace AdventOfCode.Challenges;
 
-public partial class Challenges
+public partial class Challenges2021
 {
-    public static void Day8()
-    {
+    public static void Day8() {
         D8P1();
         D8P2();
     }
 
-    private static void D8P1()
-    {
-        string[] strInput = Program.handleInput(8);
+    private static void D8P1() {
+        string[] strInput = Program.handleInput(2021, 8);
 
         int result = 0;
-        foreach (string s in strInput)
-        {
+        foreach (string s in strInput) {
             string[] output = s.Split(" | ")[1].Split(" ");
-            for (int i = 0; i < output.Length; i++)
-            {
-                switch (output[i].Length)
-                {
+            for (int i = 0; i < output.Length; i++) {
+                switch (output[i].Length) {
                     case 2:
                     case 4:
                     case 3:
                     case 7:
                         result++;
-                        break;
-                    default:
                         break;
                 }
             }
@@ -37,20 +28,17 @@ public partial class Challenges
         Console.WriteLine("D8P1: " + result);
     }
 
-    private static void D8P2()
-    {
-        string[] strInput = Program.handleInput(8);
+    private static void D8P2() {
+        string[] strInput = Program.handleInput(2021, 8);
 
         int result = 0;
-        foreach (string s in strInput)
-        {
+        foreach (string s in strInput) {
             string[] str = s.Split(" | ");
             List<string> rules = str[0].Split(" ").ToList();
             // ruleSet.ForEach(x => x = new string(x.OrderBy(c => c).ToArray()));
-            
-            List<string> ruleSet = new List<string>();
-            for (int i = 0; i < rules.Count; i++)
-            {
+
+            List<string> ruleSet = new();
+            for (int i = 0; i < rules.Count; i++) {
                 char[] arr = rules[i].ToArray();
                 Array.Sort(arr);
                 ruleSet.Add(new string(arr));
@@ -74,15 +62,12 @@ public partial class Challenges
             string five = ruleSet.First(x => x.Length == 5 && x != three && six.Contains(x));
 
 
-            System.Console.WriteLine($"{zero} {one} {two} {three} {four} {five} {six} {seven} {eight} {nine}");
+            Console.WriteLine($"{zero} {one} {two} {three} {four} {five} {six} {seven} {eight} {nine}");
 
             //Calculate output based on it
             string outputString = "";
             string[] output = str[1].Split(" ");
-            for (int i = 0; i < output.Length; i++)
-            {
-
-            }
+            for (int i = 0; i < output.Length; i++) { }
 
         }
 
